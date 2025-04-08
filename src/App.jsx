@@ -1,21 +1,24 @@
-import { Router, Routes, Route } from "react-router";
-import Home from "./pages/Home";
-import Shop from "./pages/Shop";
-import SupplyChainForm from "./pages/SupplyChainForm";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
+import { BrowserRouter, Routes, Route } from "react-router";
+import RootLayout from "./assets/layout/RootLayout";
+import Home from "./assets/pages/Home";
+import Shop from "./assets/pages/Shop";
+import SupplyChainForm from "./assets/pages/SupplyChainForm";
+import About from "./assets/pages/About";
+import Contact from "./assets/pages/Contact";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/supply-chain" element={<SupplyChainForm />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<RootLayout />}>
+          <Route index={true} element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/supply-chain" element={<SupplyChainForm />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
